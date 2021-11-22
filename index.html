@@ -18,7 +18,7 @@ cast.framework.CastContext.getInstance().setOptions({
     receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
   });
   var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-  var mediaInfo = new chrome.cast.media.MediaInfo("https://edge52.streams.klassikradio.de/klassikradio-deutschland", audio/mpeg);
+  var mediaInfo = new chrome.cast.media.MediaInfo("https://edge52.streams.klassikradio.de/klassikradio-deutschland", "audio/mp3");
 var request = new chrome.cast.media.LoadRequest(mediaInfo);
 castSession.loadMedia(request).then(
   function() { console.log('Load succeed'); },
