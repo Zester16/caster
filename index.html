@@ -14,7 +14,7 @@
   }
 };
 initializeCastApi = function() {
-var cast=  cast.framework.CastContext.getInstance().setOptions({
+cast.framework.CastContext.getInstance().setOptions({
     receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
   });
   var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
