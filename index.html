@@ -20,9 +20,12 @@ cast.framework.CastContext.getInstance().setOptions({
   var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
   var mediaInfo = new chrome.cast.media.MediaInfo("https://edge52.streams.klassikradio.de/klassikradio-deutschland", "audio/mp3");
 var request = new chrome.cast.media.LoadRequest(mediaInfo);
-castSession.loadMedia(request).then(
-  function() { console.log('Load succeed'); },
-  function(errorCode) { console.log('Error code: ' + errorCode); });
+if(castSession){
+  castSession.loadMedia(request).then(
+    function() { console.log('Load succeed'); },
+    function(errorCode) { console.log('Error code: ' + errorCode); });
+}
+
 };
 
   </script>
