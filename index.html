@@ -19,7 +19,7 @@ initializeCastApi = function() {
 cast.framework.CastContext.getInstance().setOptions({
     receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
   });
-//    castSession = cast.framework.CastContext.getInstance().getCurrentSession();
+ castSession = cast.framework.CastContext.getInstance().getCurrentSession();
 //   var mediaInfo = new chrome.cast.media.MediaInfo("https://edge52.streams.klassikradio.de/klassikradio-deutschland", "audio/mp3");
 // var request = new chrome.cast.media.LoadRequest(mediaInfo);
 // if(castSession){
@@ -31,12 +31,12 @@ cast.framework.CastContext.getInstance().setOptions({
 function startRadio(strealUrl){
   if(castSession){
 
-    var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
-   var request = new chrome.cast.media.LoadRequest(mediaInfo);
-   if(castSession){
-    castSession.loadMedia(request).then(
-      function() { console.log('Load succeed'); },
-      function(errorCode) { console.log('Error code: ' + errorCode); });
+      var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
+     var request = new chrome.cast.media.LoadRequest(mediaInfo);
+     if(castSession){
+        castSession.loadMedia(request).then(
+          function() { console.log('Load succeed'); },
+          function(errorCode) { console.log('Error code: ' + errorCode); });
   }
 
 }
