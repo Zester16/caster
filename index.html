@@ -15,6 +15,7 @@
 };
 var castSession
 var  playerController
+
 var classicR="https://edge52.streams.klassikradio.de/klassikradio-deutschland"
 initializeCastApi = async function() {
 cast.framework.CastContext.getInstance().setOptions({
@@ -37,13 +38,13 @@ async function  startRadio(streamUrl){
   if(castSession){
     console.log(streamUrl)
       var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
-     var request = new chrome.cast.media.LoadRequest(mediaInfo);
+     var request = await new chrome.cast.media.LoadRequest(mediaInfo);
       if(castSession){
         castSession.loadMedia(request).then(
           function() { console.log('Load succeed'); },
           function(errorCode) { console.log('Error code: ' + errorCode); });
-          var player = new cast.framework.RemotePlayer();
- playerController = new cast.framework.RemotePlayerController(player);
+          var player = await new cast.framework.RemotePlayer();
+          playerController = await new cast.framework.RemotePlayerController(player);
 
   }
 var play=playerController.playOrPause()
