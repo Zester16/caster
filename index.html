@@ -28,13 +28,13 @@ cast.framework.CastContext.getInstance().setOptions({
 //     function(errorCode) { console.log('Error code: ' + errorCode); });
 // }
 };
-function startRadio(streamUrl){
-  initializeCastApi()
+async function  startRadio(streamUrl){
+  await initializeCastApi()
   if(castSession){
     console.log(streamUrl)
       var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
      var request = new chrome.cast.media.LoadRequest(mediaInfo);
-     if(castSession){
+     await if(castSession){
         castSession.loadMedia(request).then(
           function() { console.log('Load succeed'); },
           function(errorCode) { console.log('Error code: ' + errorCode); });
