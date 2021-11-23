@@ -13,13 +13,13 @@
     initializeCastApi();
   }
 };
-var castSession=null;
+var castSession
 var classicR="https://edge52.streams.klassikradio.de/klassikradio-deutschland"
-initializeCastApi = function() {
+initializeCastApi = async function() {
 cast.framework.CastContext.getInstance().setOptions({
     receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID
   });
- castSession = cast.framework.CastContext.getInstance().getCurrentSession();
+ castSession = await cast.framework.CastContext.getInstance().getCurrentSession();
 //   var mediaInfo = new chrome.cast.media.MediaInfo("https://edge52.streams.klassikradio.de/klassikradio-deutschland", "audio/mp3");
 // var request = new chrome.cast.media.LoadRequest(mediaInfo);
 // if(castSession){
@@ -28,7 +28,7 @@ cast.framework.CastContext.getInstance().setOptions({
 //     function(errorCode) { console.log('Error code: ' + errorCode); });
 // }
 };
-function startRadio(strealUrl){
+function startRadio(streamUrl){
   if(castSession){
 
       var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
