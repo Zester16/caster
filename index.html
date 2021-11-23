@@ -34,7 +34,7 @@ async function  startRadio(streamUrl){
     console.log(streamUrl)
       var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
      var request = new chrome.cast.media.LoadRequest(mediaInfo);
-     await if(castSession){
+      if(castSession){
         castSession.loadMedia(request).then(
           function() { console.log('Load succeed'); },
           function(errorCode) { console.log('Error code: ' + errorCode); });
