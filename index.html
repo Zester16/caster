@@ -28,9 +28,9 @@ cast.framework.CastContext.getInstance().setOptions({
 //     function(errorCode) { console.log('Error code: ' + errorCode); });
 // }
 };
-function startRadio(streamUrl){
+function startRadio(var streamUrl){
   if(castSession){
-
+    console.log(streamUrl)
       var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
      var request = new chrome.cast.media.LoadRequest(mediaInfo);
      if(castSession){
