@@ -29,6 +29,7 @@ cast.framework.CastContext.getInstance().setOptions({
 // }
 };
 function startRadio(var streamUrl){
+  await initializeCastApi()
   if(castSession){
     console.log(streamUrl)
       var mediaInfo = new chrome.cast.media.MediaInfo(streamUrl, "audio/mp3");
